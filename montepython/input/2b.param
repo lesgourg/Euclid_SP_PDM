@@ -1,0 +1,71 @@
+# data.experiments=['pdm', 'fake_planck_realistic']
+data.experiments=['pdm']
+data.N=1e5
+data.write_step=5
+
+
+
+# LCDM parameters
+data.parameters['Omega_b']      = [0.0491989,       0,  None,   0.,    1, 'cosmo']
+data.parameters['h']            = [0.6737,          0,  None,   0.,    1, 'cosmo']
+data.parameters['n_s']          = [0.96605,         0,  None,   0.,    1, 'cosmo']
+data.parameters['ln10^{10}A_s'] = [3.0447,          0,  None,   0.,    1, 'cosmo']
+data.parameters['Omega_m']      = [0.3145714273,    0,  None,   0.,    1, 'cosmo']
+
+
+
+# 2b decay paramters
+data.has_twobody = True
+data.parameters['logf']                     = [-1.3,    -1.3,   0,          3e-2,   1,  'cosmo']
+data.parameters['log\Gamma']                = [-2.8,    -2.8,   -1.13,      3e-3,   1,  'cosmo']
+data.parameters['log\epsilon']              = [-3.5,    -3.5,   -1.8,       3e-3,   1,  'cosmo']
+# These will be converted into CLASS paramters Omega_cdm, Omega_ini_dcdm2 (the initial density of the
+# 2b-decaying DM), epsilon_dcdm and Gamma_dcdm as well as emulator parameter velocity_kick.
+# Gamma has units 1/Gyr.
+
+# 2b decay CLASS paramters
+data.cosmo_arguments['M_dcdm'] = 1
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['background_ncdm_distribution'] = 1
+data.cosmo_arguments['m_ncdm'] = 0
+data.cosmo_arguments['Quadrature strategy'] = 4
+data.cosmo_arguments['Number of momentum bins perturbs'] = 100
+data.cosmo_arguments['evolver'] = 0
+data.cosmo_arguments['l_max_ncdm'] = 17
+data.cosmo_arguments['ncdm_fluid_approximation'] = 2
+data.cosmo_arguments['ncdm_fluid_trigger_tau_over_tau_k'] = 25
+data.cosmo_arguments['massive_daughter_perturbations'] = 'yes'
+data.cosmo_arguments['dark_radiation_perturbations'] = 'yes'
+# to be used with https://github.com/PoulinV/class_decays/tree/merging_with_master.
+
+
+
+# baryonic feedback parameters: BCemu
+data.use_BCemu = True
+data.BCemu_affects_GC = False
+data.parameters['log10Mc']      = [13.25,   11,     15,     1,          1,  'nuisance']
+data.parameters['thej']         = [4.711,   2,      8,      0.5,        1,  'nuisance']
+data.parameters['deta']         = [0.097,   0.05,   0.4,    0.001,      1,  'nuisance']
+data.parameters['nu_Mc']        = [0.038,   None,   None,   0.001,      1,  'nuisance']
+data.parameters['nu_thej']      = [0.0,     None,   None,   0.001,      1,  'nuisance']
+data.parameters['nu_deta']      = [0.06,    None,   None,   0.006,      1,  'nuisance']
+
+
+
+# bias parameters
+# GCph bias parameters
+data.parameters['bias_1']       = [1.0998,  None,   None,   2.4447e-04,     1,  'nuisance']
+data.parameters['bias_2']       = [1.2202,  None,   None,   3.2811e-04,     1,  'nuisance']
+data.parameters['bias_3']       = [1.2724,  None,   None,   3.7828e-04,     1,  'nuisance']
+data.parameters['bias_4']       = [1.3166,  None,   None,   4.2278e-04,     1,  'nuisance']
+data.parameters['bias_5']       = [1.3581,  None,   None,   4.7022e-04,     1,  'nuisance']
+data.parameters['bias_6']       = [1.3998,  None,   None,   5.0606e-04,     1,  'nuisance']
+data.parameters['bias_7']       = [1.4446,  None,   None,   5.6154e-04,     1,  'nuisance']
+data.parameters['bias_8']       = [1.4965,  None,   None,   5.8307e-04,     1,  'nuisance']
+data.parameters['bias_9']       = [1.5652,  None,   None,   6.3010e-04,     1,  'nuisance']
+data.parameters['bias_10']      = [1.743,   None,   None,   7.1196e-04,     1,  'nuisance']
+
+# WL bias parameters
+data.parameters['aIA']          = [1.72,    0,      12.1,   1.1912e-02,     1,  'nuisance']
+data.parameters['etaIA']        = [-0.41,   -7.0,   6.17,   7.4451e-03,     1,  'nuisance']
+data.parameters['betaIA']       = [2.17,    0.63,   5.0,    0.,             1,  'nuisance']

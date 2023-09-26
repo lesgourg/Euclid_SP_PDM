@@ -1,0 +1,57 @@
+# data.experiments=['pdm', 'fake_planck_realistic']
+data.experiments=['pdm']
+data.N=1e5
+data.write_step=5
+
+
+
+# LCDM parameters
+data.parameters['Omega_b']      = [0.0491989,       0,  None,   0.002,    1, 'cosmo']
+data.parameters['h']            = [0.6737,          0,  None,   0.010,    1, 'cosmo']
+data.parameters['n_s']          = [0.96605,         0,  None,   0.007,    1, 'cosmo']
+data.parameters['ln10^{10}A_s'] = [3.0447,          0,  None,   0.002,    1, 'cosmo']
+data.parameters['Omega_m']      = [0.3145714273,    0,  None,   0.001,    1, 'cosmo']
+
+
+
+# ethos parameters
+data.has_ethos = True
+data.cosmo_arguments['f_idm']           = 1
+data.cosmo_arguments['nindex_idm_dr']   = 0
+data.cosmo_arguments['idr_nature']      = 'free_streaming'
+data.parameters['log10a_dark']          = [0,       -6,     5,    1,      1,  'cosmo']
+data.parameters['log10xi_idr']          = [-1.5,    -2,     -0.4,   0.4,    1,  'cosmo']
+# these paramters will be converted to CLASS parameters a_idm_dr and xi_idr in data.py.
+# a has units 1/Mpc.
+
+
+
+# baryonic feedback parameters: BCemu
+data.use_BCemu = True
+data.BCemu_affects_GC = False
+data.parameters['log10Mc']      = [13.25,   11,     15,     1,          1,  'nuisance']
+data.parameters['thej']         = [4.711,   2,      8,      0.5,        1,  'nuisance']
+data.parameters['deta']         = [0.097,   0.05,   0.4,    0.001,      1,  'nuisance']
+data.parameters['nu_Mc']        = [0.038,   None,   None,   0.001,      1,  'nuisance']
+data.parameters['nu_thej']      = [0.0,     None,   None,   0.001,      1,  'nuisance']
+data.parameters['nu_deta']      = [0.06,    None,   None,   0.006,      1,  'nuisance']
+
+
+
+# bias parameters
+# GCph bias parameters
+data.parameters['bias_1']       = [1.0998,  None,   None,   2.4447e-04,     1,  'nuisance']
+data.parameters['bias_2']       = [1.2202,  None,   None,   3.2811e-04,     1,  'nuisance']
+data.parameters['bias_3']       = [1.2724,  None,   None,   3.7828e-04,     1,  'nuisance']
+data.parameters['bias_4']       = [1.3166,  None,   None,   4.2278e-04,     1,  'nuisance']
+data.parameters['bias_5']       = [1.3581,  None,   None,   4.7022e-04,     1,  'nuisance']
+data.parameters['bias_6']       = [1.3998,  None,   None,   5.0606e-04,     1,  'nuisance']
+data.parameters['bias_7']       = [1.4446,  None,   None,   5.6154e-04,     1,  'nuisance']
+data.parameters['bias_8']       = [1.4965,  None,   None,   5.8307e-04,     1,  'nuisance']
+data.parameters['bias_9']       = [1.5652,  None,   None,   6.3010e-04,     1,  'nuisance']
+data.parameters['bias_10']      = [1.743,   None,   None,   7.1196e-04,     1,  'nuisance']
+
+# WL bias parameters
+data.parameters['aIA']          = [1.72,    0,      12.1,   1.1912e-02,     1,  'nuisance']
+data.parameters['etaIA']        = [-0.41,   -7.0,   6.17,   7.4451e-03,     1,  'nuisance']
+data.parameters['betaIA']       = [2.17,    0.63,   5.0,    0.,             1,  'nuisance']
