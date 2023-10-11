@@ -1,0 +1,8 @@
+# Specify as many rows as redshift bins used in the analysis (e.g. for the fiducial KiDS+VIKING-450 analysis there are five z-bins). 
+# Then specify min/max values (excluded) of angular scales theta for both xi_p/m(theta) per column (in arcmin):
+# min(xi_p) max(xi_p) min(xi_m) max(xi_m)
+  0.70	    100	      6.00	250
+  0.70	    100	      6.00	250
+  0.70	    100	      6.00	250
+  1000.0    0.1	      1000.0	0.1
+  0.70	    100	      6.00	250

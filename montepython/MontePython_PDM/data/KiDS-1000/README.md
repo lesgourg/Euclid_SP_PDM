@@ -1,0 +1,3 @@
+This repository contains data products for the KiDS-1000 cosmic shear analysis presented in [Asgari et al. 2020 (arXiv:2007.15633)](https://ui.adsabs.harvard.edu/abs/2020arXiv200715633A).
+
+If you publish your results based on using this data, please cite [Asgari et al. 2020 (arXiv:2007.15633)](https://ui.adsabs.harvard.edu/abs/2020arXiv200715633A) and include all further references and acknowledgments for the KiDS-1000 data release (as listed on the [KiDS science data webpage](http://kids.strw.leidenuniv.nl/sciencedata.php) and on the [KiDS DR4 data webpage](https://kids.strw.leidenuniv.nl/DR4/lensing.php)) and also all relevant references for KCAP, Monte Python and CLASS.

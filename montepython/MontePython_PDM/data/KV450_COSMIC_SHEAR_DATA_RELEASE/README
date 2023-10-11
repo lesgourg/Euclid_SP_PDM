@@ -1,0 +1,243 @@
+KiDS+VIKING-450 (in short: KV450) Tomographic Cosmic Shear Data Release
+
+Tarball Download: http://kids.strw.leidenuniv.nl/cs2018/KV450_COSMIC_SHEAR_DATA_RELEASE.tar.gz
+
+This tarball contains:
+
+1) The Data Vector (tomographic two-point correlation function)
+2) The Covariance Matrix 
+3) The Redshift Distributions 
+4) Supplementary Files
+
+This README contains all the relevant information about the structure and ordering of the various data files. Please read Hildebrandt et al. (2018; hereafter H18) for the details of the 
+KiDS+VIKING-450 cosmic shear analysis.
+
+In addition to this cosmological data release that allows you to explore the data in full, you can also download the published Monte Carlo Markov Chain from: http://kids.strw.leidenuniv.nl/cs2018/hildebrandt2018_mcmc_README.txt
+
+We also supply the original likelihood module used to create the published Monte Carlo Markov Chains. The likelihood module is intended to be used within a standard CLASS (version >= 2.6 and including the HMcode module) and Monte Python setup or as a blueprint and it can be downloaded from:
+
+https://github.com/fkoehlin/kv450_cf_likelihood_public
+
+Please refer to the README of this repository for further instructions related to the setting up and usage of the likelihood module. CLASS and Monte Python are publicly available from:
+
+https://github.com/lesgourg/class_public
+https://github.com/brinckmann/montepython_public 
+
+Moreover, we also supply the modified '2cosmos' Monte Python including the '2cosmos' likelihood module that were used for the consistency analysis described in Section 7.4 of H18. It can be downloaded from:
+
+https://github.com/fkoehlin/montepython_2cosmos_public 
+
+=========================================
+
+Acknowledgements:
+Users of these data should include the following acknowledgment to the source of the data:
+
+"Based on data products from observations made with ESO Telescopes at the La Silla Paranal Observatory under programme IDs 177.A-3016, 177.A-3017, 177.A-3018, 179.A-2004, and 298.A-5015."
+
+and should cite Hildebrand et al. (2018), Kannawadi et al. (2018), Wright et al. (2018), and accompanying papers as follows:
+
+We use cosmic shear measurements from the Kilo-Degree Survey and the VISTA Kilo-Degree Infrared Galaxy Survey (Kuijken et al. 2015, Wright et al. 2018, Hildebrandt et al. 2018, Kannawadi et al. 2018), hereafter referred to as KiDS+VIKING. The KiDS data are processed by THELI (Erben et al. 2013) and Astro-WISE (Begeman et al. 2013, de Jong et al 2017), and the VIKING data are processed by CASU (Gonzalez-Fernandez et al. 2018). Shears are measured using lensfit (Miller et al. 2013, Kannawadi et al. 2018), and photometric redshifts are obtained from PSF-matched photometry (Wright et al. 2018) and calibrated using external overlapping spectroscopic surveys (Hildebrandt et al. 2018).
+
+
+================================================
+The contents of the KIDS+VIKING-450 Data Release
+================================================
+
+1) The Data Vector:
+
+We provide two alternative file formats for the user which we hope will alleviate any confusion arising from the different angular scales used for the xi_p(lus) and xi_m(inus) statistics.
+
+Option 1) 195 point data vector used in the KiDS+VIKING-450 analysis
+
+DATA_VECTOR/KV450_xi_pm_tomographic_data_vector.dat
+
+File format:
+#   i   theta(i)'        xi_p/m(i)  (p=1 m=2)   itomo   jtomo
+
+Example line:
+  116   1.12610e+02      7.19070e-07    2       2       5
+
+In this example the 116th data point is the measurement of xi_m(theta=112.610 arcmin)=7.19070e-07 from cross-correlating tomographic bins 2 and 5.
+
+The vector order runs with xi_p first, then xi_m for tomographic bin combination 1,1.  We then move on to tomographic bin combination 1,2 with xi_p first and then xi_m.  Be aware that the selected theta scales differ for xi_p and xi_m.
+
+
+Option 2) Measurements at all scales for all tomographic bin combinations, for the user to order as they choose
+
+DATA_VECTOR/KV450_xi_pm_files/KV450_xi_pm_tomo_*_$_logbin_mcor.dat
+ 
+File format:
+#   theta(arcmin)  xi_p  xi_m 
+
+There is a separate file for each tomographic bin combination *, $
+
+When using these files, please be aware that we recommend applying the following angular selection;
+
+1) Remove xi_p for angular scales theta > 72 arcmin (i.e. the last two data points in each file)
+2) Remove xi_m for angular scales theta < 6 arcmin (i.e. the first three data points in each file)
+
+For further information on angular scale selection see the start of Section 5.1 in H18.
+
+The shear calibration correction derived in Kannawadi et al. 2018 has been applied to all files in the DATA_VECTOR directory
+
+=========================================
+
+2) The Covariance Matrix
+
+In this data release we present an analytical covariance matrix. As this is a noise-free analytical covariance, you should *not* apply any `Hartlap et al. (2007)' noise bias correction when you invert the matrix or account for noise in the matrix by using the `Sellentin & Heavens (2016)' likelihood analysis, for example.
+
+We provide two alternative file formats for the covariance matrix; 
+
+Option 1)  195x195 covariance matrix used in the KiDS+VIKING-450 analysis
+
+COV_MAT/xipmcutcov_KV450_analytic_inc_m.dat
+
+File format:
+#i j Cov(i,j)
+
+The ordering of the matrix follows the ordering of the vector from Option 1) above.  This file includes the additional uncertainty from the shear calibration correction (i.e. equation 12 in Hildebrandt et al. 2017).
+
+
+Option 2) Super-user: all scales covariance matrix in list format
+
+COV_MAT/Cov_mat_all_scales.txt
+
+This version allows the user to select scales and order the data vector as they choose.  It also allows the user to separate the Gaussian, shape noise and non-gaussian components of the covariance matrix.
+
+Be aware that the uncertainty from the shear calibration correction (i.e equation 12 in Hildebrandt et al. 2017) has not been applied to this version. If used in a cosmological analysis with the KiDS+VIKING-450 data vector (from Option 2 above) this additional uncertainty needs to be included in your analysis. For that purpose we also supply the theoretical xi_p/m vector in the SUPPLEMENTARY FILES, please refer to that section of the README for further details!
+
+File format:
+col.  meaning
+ 1    signal 1, redshift bin 1
+ 2    signal 1, redshift bin 2
+ 3    signal 1, 0: xi_p; 1: xi_m
+ 4    signal 1, angular separation bin centre [arcmin]
+ 5    signal 2, redshift bin 1
+ 6    signal 2, redshift bin 2
+ 7    signal 2, 0: xi_p; 1: xi_m
+ 8    signal 2, angular separation bin centre [arcmin]
+ 9    covariance element, Gaussian (disconnected) contribution + shape noise
+10    covariance element, Non-gaussian in-survey (trispectrum) contribution and super-sample covariance
+
+To get the full covariance, add cols. 9 and 10. 
+Note that only the upper triangular part of the covariance is listed.
+
+=========================================
+
+3) The Redshift Distributions
+
+A) The DIR redshift distributions
+
+In this data release we present the redshift distributions using the weighted direct spectroscopic calibration (DIR) as described in Section 3.2 of H18. These are histograms with bin width of 0.05.  The quoted redshift of the bin is the lower boundary of the bin, not the centre.
+
+REDSHIFT_DISTRIBUTIONS/Nz_DIR/Nz_DIR_Mean/Nz_DIR_z*t$.asc
+
+File format: 
+# z N(z) err_N(z)
+
+Tomographic bin 1: Nz_DIR_z0.1t0.3.asc
+Tomographic bin 2: Nz_DIR_z0.3t0.5.asc
+Tomographic bin 3: Nz_DIR_z0.5t0.7.asc
+Tomographic bin 4: Nz_DIR_z0.7t0.9.asc
+Tomographic bin 5: Nz_DIR_z0.9t1.2.asc
+
+Moreover, the following folders contain DIR redshift distributions for which one or several of the spectroscopic calibration samples were omitted (for systematic tests):
+
+A1) omitting the COSMOS catalogue 
+
+REDSHIFT_DISTRIBUTIONS/Nz_DIR_woCOSMOS/Nz_DIR_woCOSMOS_Mean/Nz_DIR_woCOSMOS_z*t$.asc
+
+A2) omitting the COSMOS and VVDS catalogues
+
+REDSHIFT_DISTRIBUTIONS/Nz_DIR_woCOSMOS-VVDS/Nz_DIR_woCOSMOS-VVDS_Mean/Nz_DIR_woCOSMOS-VVDS_z*t$.asc
+
+A3) omitting the DEEP2 catalogue
+
+REDSHIFT_DISTRIBUTIONS/Nz_DIR_woDEEP2/Nz_DIR_woDEEP2_Mean/Nz_DIR_woDEEP2_z*t$.asc
+
+A4) omitting the VVDS catalogue
+
+REDSHIFT_DISTRIBUTIONS/Nz_DIR_woVVDS/Nz_DIR_woVVDS_Mean/Nz_DIR_woVVDS_z*t$.asc 
+
+A5) the DIR redshift distributions derived using the COSMOS 2015 photo-z catalogue instead of any from the above spectroscopic catalogues
+
+REDSHIFT_DISTRIBUTIONS/Nz_DIR_C15/Nz_DIR_C15_Mean/Nz_DIR_C15_z*t$.asc
+
+
+B) The smoothed DIR redshift distributions
+
+REDSHIFT_DISTRIBUTIONS/Nz_sDIR/Nz_sDIR_Mean/Nz_sDIR_z*t$.asc
+
+
+C) The fitted CC redshift distributions
+
+Similar to the mean DIR redshift distributions we also present fitted CC redshift distributions which are based on a cross-correlation analysis between the KV450 source catalogue and several spectroscopic redshift catalogues (see App. C2 of H18).
+
+REDSHIFT_DISTRIBUTIONS/Nz_CCfit/Nz_CCfit_Mean/Nz_CCfit_z*t$.asc
+
+File format: 
+# z N(z) err_N(z)
+
+Nz_CCfit_z0.1t0.3.asc
+Nz_CCfit_z0.3t0.5.asc
+Nz_CCfit_z0.5t0.7.asc
+Nz_CCfit_z0.7t0.9.asc
+Nz_CCfit_z0.9t1.2.asc
+
+=========================================
+
+4) Supplementary Files
+
+A) Cut values
+
+These files contain various masking schemes for the data vector(s) of Option 2) from above and allow the user to specify ranges of angular scales per tomographic bin. Note that these files are intended to be used only with the original likelihood module (available from http://github.com/fkoehlin/kv450_cf_likelihood_public).
+As an example, we describe the masking file for the fiducial KV450 analysis, using 5 tomographic bins within angular ranges theta of 0.70 < theta/arcmin < 100. for xi_p and 6. < theta/arcmin < 250 for xi_m:
+
+SUPPLEMENTARY_FILES/CUT_VALUES/cut_values_5zbins.txt
+
+Specify as many rows as redshift bins used in the analysis (e.g. for the fiducial KiDS+VIKING-450 analysis there are five z-bins). 
+Then specify min/max values (excluded) of angular scales theta for both xi_p/m(theta) per column (in arcmin):
+
+File format:
+# min(xi_p) max(xi_p) min(xi_m) max(xi_m)
+  0.70	    100	      6.00	250
+  0.70	    100	      6.00	250
+  0.70	    100	      6.00	250
+  0.70	    100	      6.00	250
+  0.70	    100	      6.00	250  
+
+B) Theory vector for covariance matrix
+
+In order to propagate the uncertainty of the (multiplicative) shear calibration according to equation 12 in Hildebrandt et al. (2017) into a custom covariance matrix derived from the super-user covariance COV_MAT/Cov_mat_all_scales.txt, we also supply the theoretical xi_p/m vector measured over all scales (as included in the super-user covariance) for all tomographic bin combinations (note that this propagation was already carried out for the covariance matrix in 'COV_MAT/xipmcutcov_KV450_analytic_inc_m.dat'): 
+
+SUPPLEMENTARY_FILES/THEORY_for_COV_MAT_xi_pm_files/THEORY_for_COV_MAT_xi_pm_tomo_*_$_logbin.dat
+ 
+File format:
+#   theta(arcmin)  xi_p  xi_m 
+
+There is a separate file for each tomographic bin combination *, $
+
+C) Scale-dependent c-term xi_p/m measurements
+
+This file is required by the original likelihood module (available from http://github.com/fkoehlin/kv450_cf_likelihood_public) and contains xi_p/m measurements of the pattern shown in Fig. 2 of H18 averaged over all individual KiDS+VIKING-450 fields in order to construct an (angular) scale-dependent c-term correlation function over which we marginalize in the likelihood analysis. Note that only columns 4 and 5 are actually used for that. 
+
+SUPPLEMENTARY_FILES/KV450_xi_pm_c_term.dat
+
+File format:
+col.  meaning
+ 1    R_nom = The center of the bin
+ 2    meanR = The mean separation of the points that went into the bin.
+ 3    meanlogR = The mean log(R) of the points that went into the bin.  
+ 4    xi_p = <g1 g1 + g2 g2> where g1 and g2 are measured with respect to the line joining the two galaxies.
+ 5    xi_m = <g1 g1 - g2 g2> where g1 and g2 are measured with respect to the line joining the two galaxies.
+ 6    xi_p_im = <g2 g1 - g1 g2>. In the formulation of xi+ using complex numbers, this is the imaginary component. It should normally be consistent with zero, especially for an auto-correlation, because         if every pair were counted twice to get each galaxy in both positions, then this would come out exactly zero.
+ 7    xi_m_im = <g2 g1 + g1 g2>. In the formulation of xi- using complex numbers, this is the imaginary component. It should be consistent with zero for parity invariant shear fields.
+ 8    sigma_xi = The 1-sigma error bar for xi+ and xi-.
+ 9    weight = The total weight of the pairs in each bin.
+10    npairs = The total number of pairs in each bin.
+
+=========================================
+
+If you have any questions or queries about this data release, please do not hesitate to contact
+Hendrik Hildebrandt (hendrik@astro.ruhr-uni-bochum.de) or Fabian Koehlinger (fabian.koehlinger@ipmu.jp).
+

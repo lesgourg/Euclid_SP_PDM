@@ -1,0 +1,78 @@
+# Euclid likelihood
+# Cross-correlation of photometric probes
+
+# Based on an earlier euclid_lensing likelihood
+# by Sprenger et al. 1801.08331
+
+# Developed by Maike Doerenkamp, Lena Rathmann, Julien Lesgourgues, Justus Schwagereit, Sefa Pamuk
+# Following the validation recipe of
+# Euclid Collaboration et al. 1910.09237
+
+
+# data directory and fiducial file
+euclid_photometric_fast.data_directory   = data.path['data']
+euclid_photometric_fast.fiducial_file_XC = "euclid_xc_fiducial_3x2_pess_10_2.5.dat"
+euclid_photometric_fast.fiducial_file_WL = "euclid_xc_fiducial_WL_pess_10_2.5.dat"
+euclid_photometric_fast.fiducial_file_GC = "euclid_xc_fiducial_GC_pess_10_2.5.dat"
+
+
+# evaluated probes
+euclid_photometric_fast.probe_WL = True
+euclid_photometric_fast.probe_GC = True
+
+
+# evaluated l-values
+euclid_photometric_fast.lmin = 10
+# because the Limber approximation only holds above lmin=10!
+# lmax_WL >= lmax_GC typically
+# cross-correlation is done until lmax_XC = min(lmax_WL, lmax_GC)
+# optimistic case:
+# euclid_photometric_fast.lmax_WL=5000
+# euclid_photometric_fast.lmax_GC=3000
+# pessimistic case:
+euclid_photometric_fast.lmax_WL=1500
+euclid_photometric_fast.lmax_GC=750
+
+
+# Survey specifications
+# Covered redshift bins
+# the last value equals zmax
+# this array should hold one more value than the number of bins in your survey (default: 10 bins, 11 z edge values)
+euclid_photometric_fast.z_bin_edges = [0.001, 0.418, 0.560, 0.678, 0.789, 0.900, 1.019, 1.155, 1.324, 1.576, 2.5]
+# sky coverage
+euclid_photometric_fast.fsky  = 0.3636
+# number of galaxies per square arcminutes
+euclid_photometric_fast.gal_per_sqarcmn = 30.0
+
+
+# Computational precision
+# number of discrete z values in integrations
+euclid_photometric_fast.nzmax = 200
+# number of discrete l values
+euclid_photometric_fast.lbin = 100
+# noise computation
+euclid_photometric_fast.rms_shear = 0.30
+# note even if False, halofit will be used if the .param
+# file or any other likelihood specifies halofit
+
+
+# Evaluted k-values in either h/Mpc or 1/Mpc
+euclid_photometric_fast.kmin_in_h_by_Mpc = 0.001
+euclid_photometric_fast.kmax_in_h_by_Mpc = 10.0
+# euclid_photometric_fast.kmin_in_inv_Mpc = 0.001
+# euclid_photometric_fast.kmax_in_inv_Mpc = 10.0
+
+
+# non-linear correction
+euclid_photometric_fast.use_halofit = True
+# use scale-independent growth factor f (like in IST:Fisher)
+# or scale-dependent one (like in f(R) or neutrino papers)
+euclid_photometric_fast.scale_dependent_f = False
+# Bias model. Chose between binned and binned_constant
+euclid_photometric_fast.bias_model = 'binned'
+
+
+# print chi2 and elapsed time at every call
+euclid_photometric_fast.verbose = True
+# print time taken for each of the individual steps
+euclid_photometric_fast.print_individual_times = False

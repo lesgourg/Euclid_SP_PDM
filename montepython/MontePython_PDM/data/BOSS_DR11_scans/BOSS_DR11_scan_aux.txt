@@ -1,0 +1,6 @@
+# corr_type, z, types
+# types: (D_V/rs=3, Dv/Mpc=4, DA/rs=5, c/Hrs=6, rs/D_v=7, D_M/rs=8)
+# Each "type" number corresponds to the a possibility as listed above
+
+cf  2.34 5 6
+xcf 2.36 5 6
