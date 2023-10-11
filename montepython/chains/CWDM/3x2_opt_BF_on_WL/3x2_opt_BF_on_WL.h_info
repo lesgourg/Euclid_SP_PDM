@@ -1,0 +1,21 @@
+ param names	:  m_\mathrm{wdm} [eV]\log_{10}f_\mathrm{wdm}
+ R-1 values	:  0.002240	 0.002982	
+ Best Fit  	:  3.734315e+01	-2.842344e+00	
+ mean      	:  5.544419e+02	-1.740049e+00	
+ sigma     	:  2.996738e+02	 8.400948e-01	
+
+ 1-sigma - 	: -1.537906e+02	-1.259949e+00	
+ 1-sigma + 	:  4.455570e+02	 4.202406e-01	
+ 2-sigma - 	: -4.586756e+02	-1.259949e+00	
+ 2-sigma + 	:  4.455570e+02	 1.355730e+00	
+ 3-sigma - 	:  nan	 nan	
+ 3-sigma + 	:  nan	 nan	
+
+ 1-sigma > 	:  4.006514e+02	-2.999998e+00	
+ 1-sigma < 	:  9.999989e+02	-1.319808e+00	
+ 2-sigma > 	:  9.576632e+01	-2.999998e+00	
+ 2-sigma < 	:  9.999989e+02	-3.843188e-01	
+ 3-sigma > 	:  nan	 nan	
+ 3-sigma < 	:  nan	 nan	
+ 95% > 	:  nan	 nan	
+ 95% < 	:  nan	 nan	

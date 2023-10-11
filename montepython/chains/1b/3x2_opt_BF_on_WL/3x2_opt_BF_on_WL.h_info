@@ -1,0 +1,21 @@
+ param names	:  f_\mathrm{ddm}^\mathrm{ini}\Gamma\cdot f [1/Gyr]
+ R-1 values	:  0.212921	 0.142740	
+ Best Fit  	:  7.090633e-01	 7.535796e-05	
+ mean      	:  4.461522e-01	 2.898136e-04	
+ sigma     	:  nan	 1.829571e-04	
+
+ 1-sigma - 	:  nan	-2.898124e-04	
+ 1-sigma + 	:  nan	 7.610181e-05	
+ 2-sigma - 	:  nan	-2.898124e-04	
+ 2-sigma + 	:  nan	 4.317768e-04	
+ 3-sigma - 	:  nan	-2.898124e-04	
+ 3-sigma + 	:  nan	 7.766764e-04	
+
+ 1-sigma > 	:  nan	 1.148432e-09	
+ 1-sigma < 	:  nan	 3.659154e-04	
+ 2-sigma > 	:  nan	 1.148432e-09	
+ 2-sigma < 	:  nan	 7.215903e-04	
+ 3-sigma > 	:  nan	 1.148432e-09	
+ 3-sigma < 	:  nan	 1.066490e-03	
+ 95% > 	:  nan	 1.148432e-09	
+ 95% < 	:  nan	 7.074852e-04	

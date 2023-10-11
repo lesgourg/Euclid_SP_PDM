@@ -1,0 +1,3 @@
+param names    	:  R-1        Best fit    mean        sigma       1-sigma -   1-sigma +   2-sigma -   2-sigma +   1-sigma >   1-sigma <   2-sigma >   2-sigma <   95% CL >    95% CL <   
+m_\mathrm{wdm} [eV]	:  2.2404e-03 3.7343e+01  5.5444e+02  2.9967e+02 -1.5379e+02  4.4556e+02 -4.5868e+02  4.4556e+02  4.0065e+02  1.0000e+03  9.5766e+01  1.0000e+03  nan  nan
+\log_{10}f_\mathrm{wdm}	:  2.9818e-03-2.8423e+00 -1.7400e+00  8.4009e-01 -1.2599e+00  4.2024e-01 -1.2599e+00  1.3557e+00 -3.0000e+00 -1.3198e+00 -3.0000e+00 -3.8432e-01  nan  nan

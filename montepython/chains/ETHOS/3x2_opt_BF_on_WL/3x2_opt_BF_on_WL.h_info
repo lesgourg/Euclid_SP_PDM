@@ -1,0 +1,21 @@
+ param names	:  \log_{10} (a_\mathrm{dark}/[\mathrm{Mpc}]^{-1})\log_{10}\xi_\mathrm{idr}
+ R-1 values	:  0.037178	 0.187866	
+ Best Fit  	: -2.586908e-01	-1.544309e+00	
+ mean      	: -1.742799e+00	-1.378836e+00	
+ sigma     	:  2.716051e+00	 nan	
+
+ 1-sigma - 	: -4.257117e+00	 nan	
+ 1-sigma + 	:  1.174986e+00	 nan	
+ 2-sigma - 	:  nan	 nan	
+ 2-sigma + 	:  nan	 nan	
+ 3-sigma - 	:  nan	 nan	
+ 3-sigma + 	:  nan	 nan	
+
+ 1-sigma > 	: -5.999916e+00	 nan	
+ 1-sigma < 	: -5.678134e-01	 nan	
+ 2-sigma > 	:  nan	 nan	
+ 2-sigma < 	:  nan	 nan	
+ 3-sigma > 	:  nan	 nan	
+ 3-sigma < 	:  nan	 nan	
+ 95% > 	:  nan	 nan	
+ 95% < 	:  nan	 nan	
