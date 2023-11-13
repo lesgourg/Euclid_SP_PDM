@@ -72,7 +72,7 @@ pdm.bias_model = 'binned'
 # BCemu parameters
 # BCemu k and z bins at which exact values will be computed
 pdm.BCemu_k_bins = 200
-pdm.BCemu_z_bins = 20
+pdm.BCemu_z_bins = 50
 # the number of k bins does not significantly impact performance,
 # while the number of z bins does
 
